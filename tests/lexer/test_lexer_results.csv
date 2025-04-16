@@ -1,48 +1,165 @@
-test_file                       , token_type, lexeme , line, col
-tests/lexer/complex_pipeline.ctl, T_ERROR   , #      ,    1,   2
-tests/lexer/filter_even.ctl     , T_IDENT   , filter ,    1,   7
-tests/lexer/filter_even.ctl     , T_COLON   , :      ,    1,   8
-tests/lexer/filter_even.ctl     , T_LBRACE  , {      ,    1,  10
-tests/lexer/filter_even.ctl     , T_IDENT   , x      ,    1,  12
-tests/lexer/filter_even.ctl     , T_COLON   , :      ,    1,  14
-tests/lexer/filter_even.ctl     , T_IDENT   , x      ,    1,  16
-tests/lexer/filter_even.ctl     , T_PERCENT , %      ,    1,  18
-tests/lexer/filter_even.ctl     , T_NUMBER  , 2      ,    1,  20
-tests/lexer/filter_even.ctl     , T_EQ      , ==     ,    1,  23
-tests/lexer/filter_even.ctl     , T_NUMBER  , 0      ,    1,  25
-tests/lexer/filter_even.ctl     , T_RBRACE  , }      ,    1,  27
-tests/lexer/full_pipeline.ctl   , T_IDENT   , data   ,    1,   5
-tests/lexer/full_pipeline.ctl   , T_COLON   , :      ,    1,   6
-tests/lexer/full_pipeline.ctl   , T_LBRACK  , [      ,    1,   8
-tests/lexer/full_pipeline.ctl   , T_NUMBER  , 1      ,    1,   9
-tests/lexer/full_pipeline.ctl   , T_COMMA   , ","    ,    1,  10
-tests/lexer/full_pipeline.ctl   , T_NUMBER  , 2      ,    1,  11
-tests/lexer/full_pipeline.ctl   , T_COMMA   , ","    ,    1,  12
-tests/lexer/full_pipeline.ctl   , T_NUMBER  , 3      ,    1,  13
-tests/lexer/full_pipeline.ctl   , T_RBRACK  , ]      ,    1,  14
-tests/lexer/full_pipeline.ctl   , T_IDENT   , map    ,    2,   4
-tests/lexer/full_pipeline.ctl   , T_COLON   , :      ,    2,   5
-tests/lexer/full_pipeline.ctl   , T_LBRACE  , {      ,    2,   7
-tests/lexer/full_pipeline.ctl   , T_IDENT   , x      ,    2,   9
-tests/lexer/full_pipeline.ctl   , T_COLON   , :      ,    2,  11
-tests/lexer/full_pipeline.ctl   , T_IDENT   , x      ,    2,  13
-tests/lexer/full_pipeline.ctl   , T_STAR    , *      ,    2,  15
-tests/lexer/full_pipeline.ctl   , T_NUMBER  , 2      ,    2,  17
-tests/lexer/full_pipeline.ctl   , T_RBRACE  , }      ,    2,  19
-tests/lexer/full_pipeline.ctl   , T_OUTPUT  , output:,    3,   8
-tests/lexer/map_plus.ctl        , T_IDENT   , map    ,    1,   4
-tests/lexer/map_plus.ctl        , T_COLON   , :      ,    1,   5
-tests/lexer/map_plus.ctl        , T_LBRACE  , {      ,    1,   7
-tests/lexer/map_plus.ctl        , T_IDENT   , x      ,    1,   9
-tests/lexer/map_plus.ctl        , T_COLON   , :      ,    1,  11
-tests/lexer/map_plus.ctl        , T_IDENT   , x      ,    1,  13
-tests/lexer/map_plus.ctl        , T_PLUS    , +      ,    1,  15
-tests/lexer/map_plus.ctl        , T_NUMBER  , 1      ,    1,  17
-tests/lexer/map_plus.ctl        , T_RBRACE  , }      ,    1,  19
-tests/lexer/simple_vector.ctl   , T_IDENT   , input  ,    1,   6
-tests/lexer/simple_vector.ctl   , T_COLON   , :      ,    1,   7
-tests/lexer/simple_vector.ctl   , T_LBRACK  , [      ,    1,   9
-tests/lexer/simple_vector.ctl   , T_NUMBER  , 10     ,    1,  11
-tests/lexer/simple_vector.ctl   , T_COMMA   , ","    ,    1,  12
-tests/lexer/simple_vector.ctl   , T_NUMBER  , 20     ,    1,  14
-tests/lexer/simple_vector.ctl   , T_RBRACK  , ]      ,    1,  15
+test_file,token_type,lexeme,line,col
+tests/lexer/complex_pipeline.ctl,T_IDENT,input,1,6
+tests/lexer/complex_pipeline.ctl,T_COLON,:,1,9
+tests/lexer/complex_pipeline.ctl,T_LBRACK,[,1,12
+tests/lexer/complex_pipeline.ctl,T_NUMBER,1,1,13
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,14
+tests/lexer/complex_pipeline.ctl,T_NUMBER,2,1,15
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,16
+tests/lexer/complex_pipeline.ctl,T_NUMBER,3,1,17
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,18
+tests/lexer/complex_pipeline.ctl,T_NUMBER,4,1,19
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,20
+tests/lexer/complex_pipeline.ctl,T_NUMBER,5,1,21
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,22
+tests/lexer/complex_pipeline.ctl,T_NUMBER,6,1,23
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,24
+tests/lexer/complex_pipeline.ctl,T_NUMBER,7,1,25
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,26
+tests/lexer/complex_pipeline.ctl,T_NUMBER,8,1,27
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,28
+tests/lexer/complex_pipeline.ctl,T_NUMBER,9,1,29
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",1,30
+tests/lexer/complex_pipeline.ctl,T_NUMBER,10,1,32
+tests/lexer/complex_pipeline.ctl,T_RBRACK,],1,33
+tests/lexer/complex_pipeline.ctl,T_IDENT,map,2,4
+tests/lexer/complex_pipeline.ctl,T_COLON,:,2,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,2,12
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,2,14
+tests/lexer/complex_pipeline.ctl,T_COLON,:,2,16
+tests/lexer/complex_pipeline.ctl,T_LPAREN,(,2,18
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,2,19
+tests/lexer/complex_pipeline.ctl,T_STAR,*,2,21
+tests/lexer/complex_pipeline.ctl,T_NUMBER,2,2,23
+tests/lexer/complex_pipeline.ctl,T_PLUS,+,2,25
+tests/lexer/complex_pipeline.ctl,T_NUMBER,1,2,27
+tests/lexer/complex_pipeline.ctl,T_RPAREN,),2,28
+tests/lexer/complex_pipeline.ctl,T_SLASH,/,2,30
+tests/lexer/complex_pipeline.ctl,T_LPAREN,(,2,32
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,2,33
+tests/lexer/complex_pipeline.ctl,T_MINUS,-,2,35
+tests/lexer/complex_pipeline.ctl,T_NUMBER,1,2,37
+tests/lexer/complex_pipeline.ctl,T_RPAREN,),2,38
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},2,40
+tests/lexer/complex_pipeline.ctl,T_IDENT,filter,3,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,3,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,3,12
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,3,14
+tests/lexer/complex_pipeline.ctl,T_COLON,:,3,16
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,3,18
+tests/lexer/complex_pipeline.ctl,T_PERCENT,%,3,20
+tests/lexer/complex_pipeline.ctl,T_NUMBER,2,3,22
+tests/lexer/complex_pipeline.ctl,T_EQ,==,3,25
+tests/lexer/complex_pipeline.ctl,T_NUMBER,0,3,27
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},3,29
+tests/lexer/complex_pipeline.ctl,T_IDENT,filter,4,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,4,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,4,12
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,4,14
+tests/lexer/complex_pipeline.ctl,T_COLON,:,4,16
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,4,18
+tests/lexer/complex_pipeline.ctl,T_GT,>,4,20
+tests/lexer/complex_pipeline.ctl,T_NUMBER,3,4,22
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},4,24
+tests/lexer/complex_pipeline.ctl,T_IDENT,expand,5,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,5,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,5,12
+tests/lexer/complex_pipeline.ctl,T_LBRACK,[,5,14
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,5,16
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",5,17
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,5,19
+tests/lexer/complex_pipeline.ctl,T_STAR,*,5,21
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,5,23
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",5,24
+tests/lexer/complex_pipeline.ctl,T_LPAREN,(,5,26
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,5,27
+tests/lexer/complex_pipeline.ctl,T_STAR,*,5,29
+tests/lexer/complex_pipeline.ctl,T_NUMBER,2,5,31
+tests/lexer/complex_pipeline.ctl,T_PLUS,+,5,33
+tests/lexer/complex_pipeline.ctl,T_NUMBER,1,5,35
+tests/lexer/complex_pipeline.ctl,T_RPAREN,),5,36
+tests/lexer/complex_pipeline.ctl,T_RBRACK,],5,38
+tests/lexer/complex_pipeline.ctl,T_PIPE,|,5,40
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,5,42
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},5,44
+tests/lexer/complex_pipeline.ctl,T_IDENT,map,6,4
+tests/lexer/complex_pipeline.ctl,T_COLON,:,6,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,6,12
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,6,14
+tests/lexer/complex_pipeline.ctl,T_COLON,:,6,16
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,6,18
+tests/lexer/complex_pipeline.ctl,T_MINUS,-,6,20
+tests/lexer/complex_pipeline.ctl,T_NUMBER,5,6,22
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},6,24
+tests/lexer/complex_pipeline.ctl,T_IDENT,filter,7,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,7,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,7,12
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,7,14
+tests/lexer/complex_pipeline.ctl,T_COLON,:,7,16
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,7,18
+tests/lexer/complex_pipeline.ctl,T_GTE,>=,7,21
+tests/lexer/complex_pipeline.ctl,T_NUMBER,0,7,23
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},7,25
+tests/lexer/complex_pipeline.ctl,T_IDENT,expand,8,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,8,9
+tests/lexer/complex_pipeline.ctl,T_LBRACE,{,8,12
+tests/lexer/complex_pipeline.ctl,T_LBRACK,[,8,14
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,8,16
+tests/lexer/complex_pipeline.ctl,T_SLASH,/,8,18
+tests/lexer/complex_pipeline.ctl,T_NUMBER,2,8,20
+tests/lexer/complex_pipeline.ctl,T_COMMA,",",8,21
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,8,23
+tests/lexer/complex_pipeline.ctl,T_SLASH,/,8,25
+tests/lexer/complex_pipeline.ctl,T_NUMBER,3,8,27
+tests/lexer/complex_pipeline.ctl,T_RBRACK,],8,29
+tests/lexer/complex_pipeline.ctl,T_PIPE,|,8,31
+tests/lexer/complex_pipeline.ctl,T_IDENT,x,8,33
+tests/lexer/complex_pipeline.ctl,T_RBRACE,},8,35
+tests/lexer/complex_pipeline.ctl,T_IDENT,output,9,7
+tests/lexer/complex_pipeline.ctl,T_COLON,:,9,9
+tests/lexer/filter_even.ctl,T_IDENT,filter,1,7
+tests/lexer/filter_even.ctl,T_COLON,:,1,8
+tests/lexer/filter_even.ctl,T_LBRACE,{,1,10
+tests/lexer/filter_even.ctl,T_IDENT,x,1,12
+tests/lexer/filter_even.ctl,T_COLON,:,1,14
+tests/lexer/filter_even.ctl,T_IDENT,x,1,16
+tests/lexer/filter_even.ctl,T_PERCENT,%,1,18
+tests/lexer/filter_even.ctl,T_NUMBER,2,1,20
+tests/lexer/filter_even.ctl,T_EQ,==,1,23
+tests/lexer/filter_even.ctl,T_NUMBER,0,1,25
+tests/lexer/filter_even.ctl,T_RBRACE,},1,27
+tests/lexer/full_pipeline.ctl,T_IDENT,data,1,5
+tests/lexer/full_pipeline.ctl,T_COLON,:,1,6
+tests/lexer/full_pipeline.ctl,T_LBRACK,[,1,8
+tests/lexer/full_pipeline.ctl,T_NUMBER,1,1,9
+tests/lexer/full_pipeline.ctl,T_COMMA,",",1,10
+tests/lexer/full_pipeline.ctl,T_NUMBER,2,1,11
+tests/lexer/full_pipeline.ctl,T_COMMA,",",1,12
+tests/lexer/full_pipeline.ctl,T_NUMBER,3,1,13
+tests/lexer/full_pipeline.ctl,T_RBRACK,],1,14
+tests/lexer/full_pipeline.ctl,T_IDENT,map,2,4
+tests/lexer/full_pipeline.ctl,T_COLON,:,2,5
+tests/lexer/full_pipeline.ctl,T_LBRACE,{,2,7
+tests/lexer/full_pipeline.ctl,T_IDENT,x,2,9
+tests/lexer/full_pipeline.ctl,T_COLON,:,2,11
+tests/lexer/full_pipeline.ctl,T_IDENT,x,2,13
+tests/lexer/full_pipeline.ctl,T_STAR,*,2,15
+tests/lexer/full_pipeline.ctl,T_NUMBER,2,2,17
+tests/lexer/full_pipeline.ctl,T_RBRACE,},2,19
+tests/lexer/full_pipeline.ctl,T_OUTPUT,output:,3,8
+tests/lexer/map_plus.ctl,T_IDENT,map,1,4
+tests/lexer/map_plus.ctl,T_COLON,:,1,5
+tests/lexer/map_plus.ctl,T_LBRACE,{,1,7
+tests/lexer/map_plus.ctl,T_IDENT,x,1,9
+tests/lexer/map_plus.ctl,T_COLON,:,1,11
+tests/lexer/map_plus.ctl,T_IDENT,x,1,13
+tests/lexer/map_plus.ctl,T_PLUS,+,1,15
+tests/lexer/map_plus.ctl,T_NUMBER,1,1,17
+tests/lexer/map_plus.ctl,T_RBRACE,},1,19
+tests/lexer/simple_vector.ctl,T_IDENT,input,1,6
+tests/lexer/simple_vector.ctl,T_COLON,:,1,7
+tests/lexer/simple_vector.ctl,T_LBRACK,[,1,9
+tests/lexer/simple_vector.ctl,T_NUMBER,10,1,11
+tests/lexer/simple_vector.ctl,T_COMMA,",",1,12
+tests/lexer/simple_vector.ctl,T_NUMBER,20,1,14
+tests/lexer/simple_vector.ctl,T_RBRACK,],1,15

@@ -1,2 +1,4 @@
 # macOS debug symbol bundles
 *.dSYM/
+
+*.DS_STORE

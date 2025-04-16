@@ -46,6 +46,10 @@ static const char *token_type_to_string(TokenType type) {
     return "T_LTE";
   case T_GTE:
     return "T_GTE";
+  case T_LPAREN:
+    return "T_LPAREN";
+  case T_RPAREN:
+    return "T_RPAREN";
   case T_OUTPUT:
     return "T_OUTPUT";
   case T_EOF:
