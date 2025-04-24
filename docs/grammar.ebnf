@@ -1,0 +1,24 @@
+Prgm               ::= Stmt ":" {Stmt ":"} ;
+
+Stmt               ::= Expr ;
+
+Expr               ::= Expr ArithOp Expr
+                     | Expr CompOp Expr
+                     | Primary ;
+
+Primary            ::= NumericLiteral
+                     | Sym
+                     | NumericLiteralList
+                     | "[" NumericLiteralList "]"
+                     | "(" Expr ")" ;
+
+Sym                ::= letter ;
+
+NumericLiteral     ::= ["-"] number ;
+
+number             ::= digit {digit} ["." digit {digit}] ;
+
+NumericLiteralList ::= NumericLiteral {"," NumericLiteral} ;
+
+ArithOp            ::= "+" | "-" | "*" | "/" | "%" | "^" | "<<" | ">>" ;
+CompOp             ::= "<=" | ">=" | "<" | ">" | "==" | "!=" ;

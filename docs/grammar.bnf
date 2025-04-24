@@ -1,0 +1,31 @@
+<Prgm>                     ::= <Stmt> ":" <PrgmRest>
+<PrgmRest>                 ::= <Stmt> ":" <PrgmRest> | ε
+
+<Stmt>                     ::= <Expr>
+
+<Expr>                     ::= <Expr> <ArithOp> <Expr>
+                             |  <Expr> <CompOp> <Expr>
+                             |  <Primary>
+
+<Primary>                  ::= <NumericLiteral>
+                             |  <Sym>
+                             |  <NumericLiteralList>
+                             |  "[" <NumericLiteralList> "]"
+                             |  "(" <Expr> ")"
+
+<Sym>                      ::= letter
+
+<NumericLiteral>           ::= "-" <number>
+                             |  <number>
+
+<number>                   ::= <digitSequence> "." <digitSequence>
+                             |  <digitSequence>
+
+<digitSequence>            ::= digit <digitSequenceOpt>
+<digitSequenceOpt>         ::= digit <digitSequenceOpt> | ε
+
+<NumericLiteralList>       ::= <NumericLiteral> <NumericLiteralListTail>
+<NumericLiteralListTail>   ::= "," <NumericLiteral> <NumericLiteralListTail> | ε
+
+<ArithOp>                  ::= "+" | "-" | "*" | "/" | "%" | "^" | "<<" | ">>"
+<CompOp>                   ::= "<=" | ">=" | "<" | ">" | "==" | "!="

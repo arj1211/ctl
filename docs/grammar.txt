@@ -1,0 +1,41 @@
+CTL {
+  Prgm
+    = Stmt (":" Stmt)* ":"
+
+  Stmt
+    = Expr
+
+  Expr
+    = Expr ArithOp Expr
+    | Expr CompOp Expr
+    | Primary
+
+  Primary
+    = NumericLiteral
+    | Sym
+    | NumericLiteralList
+    | Bracketed
+
+  Bracketed
+    = "[" NumericLiteralList "]"
+    | "(" Expr ")"
+
+  Sym
+    = letter
+
+  NumericLiteralList
+    = NumericLiteral ("," NumericLiteral)*
+
+  NumericLiteral
+    = "-"? number
+
+  number
+    = digit* "." digit+
+    | digit+
+
+  ArithOp
+    = "+" | "-" | "*" | "/" | "%" | "^" | "<<" | ">>"
+
+  CompOp
+    = "<=" | ">=" | "<" | ">" | "==" | "!="
+}
