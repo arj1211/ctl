@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexer Test Report</title>
+  <style>table { border-collapse: collapse; width: 100%; }th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }th { background-color: #f4f4f4; }pre { background: #f8f8f8; padding: 10px; border: 1px solid #ddd; }</style>
+</head>
+<body>
+<h1>Lexer Test Report</h1>
+<h2>Test: arithmetic_on_literals_and_symbols.ctl</h2>
+<pre><code>@ 7. Arithmetic on literals and symbols
+[1,2] : a * 3:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>5</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>2</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>8</td></tr>
+    <tr><td>T_LETTER</td><td>a</td><td>2</td><td>10</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>12</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>14</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>15</td></tr>
+  </tbody>
+</table>
+<h2>Test: bare_vector_literal.ctl</h2>
+<pre><code>@ 5. Bare vector literal
+1,2,3:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>2</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>3</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>4</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>7</td></tr>
+  </tbody>
+</table>
+<h2>Test: bracketed_vector_literal.ctl</h2>
+<pre><code>@ 6. Bracketed vector literal
+[4,5,6]:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>2</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>6</td><td>2</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>2</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>9</td></tr>
+  </tbody>
+</table>
+<h2>Test: combined_arithmetic_and_comparison.ctl</h2>
+<pre><code>@ 13. Combined arithmetic and comparison
+(x * 2 + 1) / (x - 1) &gt;= 5:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>3</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>7</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>11</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>12</td></tr>
+    <tr><td>T_SLASH</td><td>/</td><td>2</td><td>14</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>16</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>17</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>19</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>21</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>22</td></tr>
+    <tr><td>T_GTE</td><td>&gt;=</td><td>2</td><td>25</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>2</td><td>27</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>28</td></tr>
+  </tbody>
+</table>
+<h2>Test: comparison_between_an_expr_and_literal.ctl</h2>
+<pre><code>@ 8. Comparison between an expr and literal
+(x - 2) == 7:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>3</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>7</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>8</td></tr>
+    <tr><td>T_EQ</td><td>==</td><td>2</td><td>11</td></tr>
+    <tr><td>T_NUMBER</td><td>7</td><td>2</td><td>13</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>14</td></tr>
+  </tbody>
+</table>
+<h2>Test: complex_pipeline.ctl</h2>
+<pre><code>@ this is a comment
+[1,2,3,4,5,6,7,8,9,10] @ this is also a comment
+@ this is a comment
+:x : (x * 2 + 1) / (x - 1) @ this is also a comment
+@ this is a comment
+:x : x % 2 == 0 @ this is also a comment
+@ this is a comment
+:x : x &gt; 3 @ this is also a comment
+@ this is a comment
+:x : x - 5 @ this is also a comment
+@ this is a comment
+:x : x &gt;= 0 @ this is also a comment
+@ this is a comment
+: @ this is also a comment</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>7</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>8</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>2</td><td>9</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>10</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>2</td><td>11</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>12</td></tr>
+    <tr><td>T_NUMBER</td><td>6</td><td>2</td><td>13</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>14</td></tr>
+    <tr><td>T_NUMBER</td><td>7</td><td>2</td><td>15</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>16</td></tr>
+    <tr><td>T_NUMBER</td><td>8</td><td>2</td><td>17</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>18</td></tr>
+    <tr><td>T_NUMBER</td><td>9</td><td>2</td><td>19</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>20</td></tr>
+    <tr><td>T_NUMBER</td><td>10</td><td>2</td><td>22</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>2</td><td>23</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>4</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>4</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>4</td><td>5</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>4</td><td>7</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>4</td><td>8</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>4</td><td>10</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>4</td><td>12</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>4</td><td>14</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>4</td><td>16</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>4</td><td>17</td></tr>
+    <tr><td>T_SLASH</td><td>/</td><td>4</td><td>19</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>4</td><td>21</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>4</td><td>22</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>4</td><td>24</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>4</td><td>26</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>4</td><td>27</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>6</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>6</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>6</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>6</td><td>7</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>6</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>6</td><td>11</td></tr>
+    <tr><td>T_EQ</td><td>==</td><td>6</td><td>14</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>6</td><td>16</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>8</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>8</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>8</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>8</td><td>7</td></tr>
+    <tr><td>T_GT</td><td>&gt;</td><td>8</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>8</td><td>11</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>10</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>10</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>10</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>10</td><td>7</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>10</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>10</td><td>11</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>12</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>12</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>12</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>12</td><td>7</td></tr>
+    <tr><td>T_GTE</td><td>&gt;=</td><td>12</td><td>10</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>12</td><td>12</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>14</td><td>2</td></tr>
+  </tbody>
+</table>
+<h2>Test: deeply_nested_with_multiple_ops.ctl</h2>
+<pre><code>@ 14. Deeply nested with multiple ops
+((a &lt;&lt; 3) - (b % 5)) ^ (c + (d / 2)):</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>2</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>3</td></tr>
+    <tr><td>T_LETTER</td><td>a</td><td>2</td><td>4</td></tr>
+    <tr><td>T_LSH</td><td>&lt;&lt;</td><td>2</td><td>7</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>9</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>10</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>12</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>14</td></tr>
+    <tr><td>T_LETTER</td><td>b</td><td>2</td><td>15</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>2</td><td>17</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>2</td><td>19</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>20</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>21</td></tr>
+    <tr><td>T_EXP</td><td>^</td><td>2</td><td>23</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>25</td></tr>
+    <tr><td>T_LETTER</td><td>c</td><td>2</td><td>26</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>28</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>30</td></tr>
+    <tr><td>T_LETTER</td><td>d</td><td>2</td><td>31</td></tr>
+    <tr><td>T_SLASH</td><td>/</td><td>2</td><td>33</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>35</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>36</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>37</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>38</td></tr>
+  </tbody>
+</table>
+<h2>Test: filter_even.ctl</h2>
+<pre><code>x : x % 2 == 0
+:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>x</td><td>1</td><td>2</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>1</td><td>4</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>1</td><td>6</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>1</td><td>8</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>1</td><td>10</td></tr>
+    <tr><td>T_EQ</td><td>==</td><td>1</td><td>13</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>1</td><td>15</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>2</td></tr>
+  </tbody>
+</table>
+<h2>Test: full_pipeline.ctl</h2>
+<pre><code>[1,2,3]
+:x : x * 2
+:
+</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>1</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>1</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>1</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>1</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>1</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>1</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>1</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>7</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>11</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>3</td><td>2</td></tr>
+  </tbody>
+</table>
+<h2>Test: full_program_chaining_everything.ctl</h2>
+<pre><code>@ 15. Full program chaining everything
+[1,2,3] : p + q * r : (p % 2) == 0 : (q &gt;&gt; 1) &lt;= (r ^ 2) : z - (x + y):
+</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>2</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>10</td></tr>
+    <tr><td>T_LETTER</td><td>p</td><td>2</td><td>12</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>14</td></tr>
+    <tr><td>T_LETTER</td><td>q</td><td>2</td><td>16</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>18</td></tr>
+    <tr><td>T_LETTER</td><td>r</td><td>2</td><td>20</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>22</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>24</td></tr>
+    <tr><td>T_LETTER</td><td>p</td><td>2</td><td>25</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>2</td><td>27</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>29</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>30</td></tr>
+    <tr><td>T_EQ</td><td>==</td><td>2</td><td>33</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>2</td><td>35</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>37</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>39</td></tr>
+    <tr><td>T_LETTER</td><td>q</td><td>2</td><td>40</td></tr>
+    <tr><td>T_RSH</td><td>&gt;&gt;</td><td>2</td><td>43</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>45</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>46</td></tr>
+    <tr><td>T_LTE</td><td>&lt;=</td><td>2</td><td>49</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>51</td></tr>
+    <tr><td>T_LETTER</td><td>r</td><td>2</td><td>52</td></tr>
+    <tr><td>T_EXP</td><td>^</td><td>2</td><td>54</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>56</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>57</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>59</td></tr>
+    <tr><td>T_LETTER</td><td>z</td><td>2</td><td>61</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>63</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>65</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>66</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>68</td></tr>
+    <tr><td>T_LETTER</td><td>y</td><td>2</td><td>70</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>71</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>72</td></tr>
+  </tbody>
+</table>
+<h2>Test: language_examples.ctl</h2>
+<pre><code>@ 1. Single numeric literal
+42:
+
+@ 2. Single symbol
+x:
+
+@ 3. Simple arithmetic
+x + 5:
+
+@ 4. Simple comparison
+y &gt;= 10:
+
+@ 5. Bare vector literal
+1,2,3:
+
+@ 6. Bracketed vector literal
+[4,5,6]:
+
+@ 7. Arithmetic on literals and symbols
+[1,2] : a * 3:
+
+@ 8. Comparison between an expr and literal
+(x - 2) == 7:
+
+@ 9. Mixed ops with precedence via grouping
+(3 + x) * (y - 4):
+
+@ 10. Nested parentheses
+((x + 1) * (x - 1)) / (x ^ 2):
+
+@ 11. Modulo and shift
+x % 4 : x &lt;&lt; 2:
+
+@ 12. Vector plus comparison
+[0,1,2] : z != 0:
+
+@ 13. Combined arithmetic and comparison
+(x * 2 + 1) / (x - 1) &gt;= 5:
+
+@ 14. Deeply nested with multiple ops
+((a &lt;&lt; 3) - (b % 5)) ^ (c + (d / 2)):
+
+@ 15. Full program chaining everything
+[1,2,3] : p + q * r : (p % 2) == 0 : (q &gt;&gt; 1) &lt;= (r ^ 2) : z - (x + y):
+</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_NUMBER</td><td>42</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>4</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>5</td><td>2</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>5</td><td>3</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>8</td><td>2</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>8</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>8</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>8</td><td>7</td></tr>
+    <tr><td>T_LETTER</td><td>y</td><td>11</td><td>2</td></tr>
+    <tr><td>T_GTE</td><td>&gt;=</td><td>11</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>10</td><td>11</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>11</td><td>9</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>14</td><td>2</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>14</td><td>3</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>14</td><td>4</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>14</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>14</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>14</td><td>7</td></tr>
+    <tr><td>T_LBRACK</td><td>[</td><td>17</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>17</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>17</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>17</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>17</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>6</td><td>17</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>17</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>17</td><td>9</td></tr>
+    <tr><td>T_LBRACK</td><td>[</td><td>20</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>20</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>20</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>20</td><td>5</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>20</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>20</td><td>8</td></tr>
+    <tr><td>T_LETTER</td><td>a</td><td>20</td><td>10</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>20</td><td>12</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>20</td><td>14</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>20</td><td>15</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>23</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>23</td><td>3</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>23</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>23</td><td>7</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>23</td><td>8</td></tr>
+    <tr><td>T_EQ</td><td>==</td><td>23</td><td>11</td></tr>
+    <tr><td>T_NUMBER</td><td>7</td><td>23</td><td>13</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>23</td><td>14</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>26</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>26</td><td>3</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>26</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>26</td><td>7</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>26</td><td>8</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>26</td><td>10</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>26</td><td>12</td></tr>
+    <tr><td>T_LETTER</td><td>y</td><td>26</td><td>13</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>26</td><td>15</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>26</td><td>17</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>26</td><td>18</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>26</td><td>19</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>29</td><td>2</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>29</td><td>3</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>29</td><td>4</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>29</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>29</td><td>8</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>29</td><td>9</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>29</td><td>11</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>29</td><td>13</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>29</td><td>14</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>29</td><td>16</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>29</td><td>18</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>29</td><td>19</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>29</td><td>20</td></tr>
+    <tr><td>T_SLASH</td><td>/</td><td>29</td><td>22</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>29</td><td>24</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>29</td><td>25</td></tr>
+    <tr><td>T_EXP</td><td>^</td><td>29</td><td>27</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>29</td><td>29</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>29</td><td>30</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>29</td><td>31</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>32</td><td>2</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>32</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>32</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>32</td><td>8</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>32</td><td>10</td></tr>
+    <tr><td>T_LSH</td><td>&lt;&lt;</td><td>32</td><td>13</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>32</td><td>15</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>32</td><td>16</td></tr>
+    <tr><td>T_LBRACK</td><td>[</td><td>35</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>35</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>35</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>35</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>35</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>35</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>35</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>35</td><td>10</td></tr>
+    <tr><td>T_LETTER</td><td>z</td><td>35</td><td>12</td></tr>
+    <tr><td>T_NEQ</td><td>!=</td><td>35</td><td>15</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>35</td><td>17</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>35</td><td>18</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>38</td><td>2</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>38</td><td>3</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>38</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>38</td><td>7</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>38</td><td>9</td></tr>
+  </tbody>
+</table>
+<h2>Test: map_plus.ctl</h2>
+<pre><code>x : x + 1:
+</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>x</td><td>1</td><td>2</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>1</td><td>4</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>1</td><td>6</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>1</td><td>8</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>1</td><td>10</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>1</td><td>11</td></tr>
+  </tbody>
+</table>
+<h2>Test: mixed_ops_with_precedence_via_grouping.ctl</h2>
+<pre><code>@ 9. Mixed ops with precedence via grouping
+(3 + x) * (y - 4):</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>3</td><td>2</td><td>3</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>5</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>7</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>8</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>10</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>12</td></tr>
+    <tr><td>T_LETTER</td><td>y</td><td>2</td><td>13</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>15</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>2</td><td>17</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>18</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>19</td></tr>
+  </tbody>
+</table>
+<h2>Test: modulo_and_shift.ctl</h2>
+<pre><code>@ 11. Modulo and shift
+x % 4 : x &lt;&lt; 2:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>2</td></tr>
+    <tr><td>T_PERCENT</td><td>%</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>4</td><td>2</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>8</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>10</td></tr>
+    <tr><td>T_LSH</td><td>&lt;&lt;</td><td>2</td><td>13</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>15</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>16</td></tr>
+  </tbody>
+</table>
+<h2>Test: nested_parentheses.ctl</h2>
+<pre><code>@ 10. Nested parentheses
+((x + 1) * (x - 1)) / (x ^ 2):</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>2</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>3</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>4</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>8</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>9</td></tr>
+    <tr><td>T_STAR</td><td>*</td><td>2</td><td>11</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>13</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>14</td></tr>
+    <tr><td>T_MINUS</td><td>-</td><td>2</td><td>16</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>18</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>19</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>20</td></tr>
+    <tr><td>T_SLASH</td><td>/</td><td>2</td><td>22</td></tr>
+    <tr><td>T_LPAREN</td><td>(</td><td>2</td><td>24</td></tr>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>25</td></tr>
+    <tr><td>T_EXP</td><td>^</td><td>2</td><td>27</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>29</td></tr>
+    <tr><td>T_RPAREN</td><td>)</td><td>2</td><td>30</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>31</td></tr>
+  </tbody>
+</table>
+<h2>Test: simple_arithmetic.ctl</h2>
+<pre><code>@ 3. Simple arithmetic
+x + 5:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>2</td></tr>
+    <tr><td>T_PLUS</td><td>+</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>5</td><td>2</td><td>6</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>7</td></tr>
+  </tbody>
+</table>
+<h2>Test: simple_comparison.ctl</h2>
+<pre><code>@ 4. Simple comparison
+y &gt;= 10:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>y</td><td>2</td><td>2</td></tr>
+    <tr><td>T_GTE</td><td>&gt;=</td><td>2</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>10</td><td>2</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>9</td></tr>
+  </tbody>
+</table>
+<h2>Test: simple_vector.ctl</h2>
+<pre><code>[10,20]:
+</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>1</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>10</td><td>1</td><td>4</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>1</td><td>5</td></tr>
+    <tr><td>T_NUMBER</td><td>20</td><td>1</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>1</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>1</td><td>9</td></tr>
+  </tbody>
+</table>
+<h2>Test: single_numeric_literal.ctl</h2>
+<pre><code>@ 1. Single numeric literal
+42:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_NUMBER</td><td>42</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>4</td></tr>
+  </tbody>
+</table>
+<h2>Test: single_symbol.ctl</h2>
+<pre><code>@ 2. Single symbol
+x:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LETTER</td><td>x</td><td>2</td><td>2</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>3</td></tr>
+  </tbody>
+</table>
+<h2>Test: vector_plus_comparison.ctl</h2>
+<pre><code>@ 12. Vector plus comparison
+[0,1,2] : z != 0:</code></pre>
+<table>
+  <thead><tr><th>Token Type</th><th>Lexeme</th><th>Line</th><th>Column</th></tr></thead>
+  <tbody>
+    <tr><td>T_LBRACK</td><td>[</td><td>2</td><td>2</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>2</td><td>3</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>4</td></tr>
+    <tr><td>T_NUMBER</td><td>1</td><td>2</td><td>5</td></tr>
+    <tr><td>T_COMMA</td><td>,</td><td>2</td><td>6</td></tr>
+    <tr><td>T_NUMBER</td><td>2</td><td>2</td><td>7</td></tr>
+    <tr><td>T_RBRACK</td><td>]</td><td>2</td><td>8</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>10</td></tr>
+    <tr><td>T_LETTER</td><td>z</td><td>2</td><td>12</td></tr>
+    <tr><td>T_NEQ</td><td>!=</td><td>2</td><td>15</td></tr>
+    <tr><td>T_NUMBER</td><td>0</td><td>2</td><td>17</td></tr>
+    <tr><td>T_COLON</td><td>:</td><td>2</td><td>18</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

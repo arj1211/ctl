@@ -6,24 +6,20 @@
 // Helper to convert TokenType to a string
 static const char *token_type_to_string(TokenType type) {
   switch (type) {
-  case T_IDENT:
-    return "T_IDENT";
+  case T_LETTER:
+    return "T_LETTER";
   case T_NUMBER:
     return "T_NUMBER";
+  case T_DOT:
+    return "T_DOT";
   case T_LBRACK:
     return "T_LBRACK";
   case T_RBRACK:
     return "T_RBRACK";
-  case T_LBRACE:
-    return "T_LBRACE";
-  case T_RBRACE:
-    return "T_RBRACE";
   case T_COLON:
     return "T_COLON";
   case T_COMMA:
     return "T_COMMA";
-  case T_PIPE:
-    return "T_PIPE";
   case T_PLUS:
     return "T_PLUS";
   case T_MINUS:
@@ -34,6 +30,12 @@ static const char *token_type_to_string(TokenType type) {
     return "T_SLASH";
   case T_PERCENT:
     return "T_PERCENT";
+  case T_EXP:
+    return "T_EXP";
+  case T_LSH:
+    return "T_LSH";
+  case T_RSH:
+    return "T_RSH";
   case T_EQ:
     return "T_EQ";
   case T_NEQ:
@@ -50,8 +52,6 @@ static const char *token_type_to_string(TokenType type) {
     return "T_LPAREN";
   case T_RPAREN:
     return "T_RPAREN";
-  case T_OUTPUT:
-    return "T_OUTPUT";
   case T_EOF:
     return "T_EOF";
   case T_ERROR:
@@ -63,6 +63,7 @@ static const char *token_type_to_string(TokenType type) {
 
 int main(void) {
   // Read all of stdin into 'source'
+
   size_t cap = 1024, len = 0;
   char *source = malloc(cap);
   if (!source) {
@@ -89,12 +90,18 @@ int main(void) {
   Lexer lexer;
   lexer_init(&lexer, source);
 
+  int i = 0;
   Token tok;
   do {
     tok = lexer_next_token(&lexer);
     printf("%-8s %-10s (line %d, col %d)\n", token_type_to_string(tok.type),
            tok.lexeme, tok.line, tok.column);
     free(tok.lexeme);
+    i++;
+    if (i > 100) {
+      printf("EXITING ERROR");
+      break;
+    }
   } while (tok.type != T_EOF && tok.type != T_ERROR);
 
   free(source);
