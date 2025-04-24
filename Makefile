@@ -50,7 +50,7 @@ run-lexer-tests: $(TEST_LEXER_BIN) $(TEST_LEXER_PY_SCRIPT)
 	$(TEST_LEXER_PY_SCRIPT) -p ./$(TEST_LEXER_BIN) -t $(LEXER_TEST_DIR) -o $(LEXER_CSV)
 
 # Aggregate test target
-test: test-lexer run-lexer-tests
+test: run-lexer-tests
 
 # ┌───────────────────────────────────────────────────────────────────────────┐
 # │                                Clean Up                                   │
