@@ -6,19 +6,19 @@ CTL {
     = Expr
 
   Expr
-    = Expr ArithOp Expr
-    | Expr CompOp Expr
-    | Primary
+    = Expr ArithOp Expr -- binArith
+    | Expr CompOp Expr -- binComp
+    | Primary -- leaf
 
   Primary
-    = NumericLiteral
-    | Sym
-    | NumericLiteralList
+    = NumericLiteral -- number
+    | Sym -- symbol
+    | NumericLiteralList -- vector
     | Bracketed
 
   Bracketed
-    = "[" NumericLiteralList "]"
-    | "(" Expr ")"
+  	= "[" NumericLiteralList "]" -- vector
+    | "(" Expr ")" -- paren
 
   Sym
     = letter
@@ -30,12 +30,17 @@ CTL {
     = "-"? number
 
   number
-    = digit* "." digit+
-    | digit+
+    = digit* "." digit+ -- fract
+    | digit+ -- whole
 
   ArithOp
     = "+" | "-" | "*" | "/" | "%" | "^" | "<<" | ">>"
 
   CompOp
     = "<=" | ">=" | "<" | ">" | "==" | "!="
+
+  space  += comment
+
+  comment
+  	= "@" (~"\n" any)*
 }

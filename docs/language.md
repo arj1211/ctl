@@ -1,5 +1,7 @@
 ## Syntax Examples
 
+Try [grammar](grammar.txt) in [Ohm.js Editor](https://ohmjs.org/editor)
+
 ### Minimal Valid Program
 
 ```
