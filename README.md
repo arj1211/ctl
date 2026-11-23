@@ -1,6 +1,6 @@
 # Collection Transformation Language (CTL)
 
-This document captures the definition, syntax, architecture, and future extensions for CTL—a minimal DSL for transforming collections of numbers through a pipeline of steps.
+This document captures the definition, syntax, architecture, and future extensions for CTL; a minimal DSL for transforming collections of numbers through a pipeline of steps.
 
 ---
 
